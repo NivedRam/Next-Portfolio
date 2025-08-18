@@ -147,7 +147,8 @@ export function SEOHead({
       <meta name="apple-mobile-web-app-title" content="Nived Ram" />
 
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="apple-touch-icon" sizes="180x180" href="/og-image.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/og-image.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/og-image.png" />
