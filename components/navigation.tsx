@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CONTENT } from "@/constants/content";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,8 +54,12 @@ export function Navigation() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="flex gap-5 text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
           >
+            <Avatar>
+              <AvatarImage src="./nived.png" alt="nived-ram" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>{" "}
             Nived Ram
           </motion.div>
 
