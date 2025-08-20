@@ -119,12 +119,12 @@ export function Hero() {
           >
             {[
               {
-                href: "https://github.com/nived-ram",
+                href: "https://github.com/NivedRam",
                 Icon: Github,
                 color: "hover:bg-gray-100 dark:hover:bg-gray-800",
               },
               {
-                href: "https://linkedin.com/in/nived-ram",
+                href: "https://linkedin.com/in/nived-ram-online",
                 Icon: Linkedin,
                 color: "hover:bg-blue-100 dark:hover:bg-blue-900",
               },
