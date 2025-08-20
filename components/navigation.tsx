@@ -60,7 +60,7 @@ export function Navigation() {
               <AvatarImage src="./nived.png" alt="nived-ram" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>{" "}
-            Nived Ram
+            {/* Nived Ram */}
           </motion.div>
 
           {/* Desktop Navigation */}
