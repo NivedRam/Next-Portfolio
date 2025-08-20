@@ -38,7 +38,7 @@ export function Hero() {
       {/* Main Content */}
       <motion.div
         style={{ y, opacity, scale }}
-        className="relative z-10 text-center max-w-4xl mx-auto"
+        className="relative z-10 text-center max-w-4xl mx-auto pb-20 md:pb-17"
       >
         <ParallaxContainer speed={0.3}>
           <motion.div
