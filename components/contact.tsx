@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { CONTENT } from "@/constants/content"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { CONTENT } from "@/constants/content";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,20 +18,62 @@ export function Contact() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-  }
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+      setSubmitStatus("error");
+      setErrorMessage("Form configuration error. Please try again later.");
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          email: formData.email,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        { publicKey }
+      );
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS send failed", error);
+      setSubmitStatus("error");
+      setErrorMessage("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const contactInfo = [
     {
@@ -51,7 +94,7 @@ export function Contact() {
       value: CONTENT.contact.contactInfo[2].value,
       href: CONTENT.contact.contactInfo[2].href,
     },
-  ]
+  ];
 
   return (
     <section id="contact" className="py-20 px-4">
@@ -63,8 +106,12 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{CONTENT.contact.title}</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{CONTENT.contact.description}</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            {CONTENT.contact.title}
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {CONTENT.contact.description}
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -75,7 +122,9 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold mb-8">{CONTENT.contact.letsConnect}</h3>
+            <h3 className="text-2xl font-semibold mb-8">
+              {CONTENT.contact.letsConnect}
+            </h3>
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -90,7 +139,9 @@ export function Contact() {
                     {info.icon}
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">{info.title}</h4>
+                    <h4 className="font-medium text-gray-900 dark:text-white">
+                      {info.title}
+                    </h4>
                     <a
                       href={info.href}
                       className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -103,7 +154,9 @@ export function Contact() {
             </div>
 
             <div className="prose dark:prose-invert">
-              <p className="text-gray-600 dark:text-gray-300">{CONTENT.contact.responseMessage}</p>
+              <p className="text-gray-600 dark:text-gray-300">
+                {CONTENT.contact.responseMessage}
+              </p>
             </div>
           </motion.div>
 
@@ -122,7 +175,10 @@ export function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {CONTENT.contact.form.name}
                       </label>
                       <Input
@@ -135,7 +191,10 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {CONTENT.contact.form.email}
                       </label>
                       <Input
@@ -151,7 +210,10 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium mb-2"
+                    >
                       {CONTENT.contact.form.subject}
                     </label>
                     <Input
@@ -165,7 +227,10 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
                       {CONTENT.contact.form.message}
                     </label>
                     <Textarea
@@ -179,10 +244,23 @@ export function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full">
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                  >
                     <Send className="w-4 h-4 mr-2" />
-                    {CONTENT.contact.form.send}
+                    {isSubmitting ? "Sending..." : CONTENT.contact.form.send}
                   </Button>
+                  {submitStatus === "success" && (
+                    <p className="text-green-600 text-sm">
+                      Message sent! I’ll get back to you soon.
+                    </p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p className="text-red-600 text-sm">{errorMessage}</p>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -190,5 +268,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,10 +1,12 @@
 import type React from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import { SEOHead } from "@/components/seo/seo-head";
 import { ScrollProgress } from "@/components/parallax/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CONTENT } from "@/constants/content";
 import "./globals.css";
+import BuyMeCoffee from "@/components/buyMeACoffe";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -95,6 +97,8 @@ export default function RootLayout({
           <ScrollProgress />
           {children}
         </ThemeProvider>
+        <Analytics />
+        <BuyMeCoffee />
       </body>
     </html>
   );
