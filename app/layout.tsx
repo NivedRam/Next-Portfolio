@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { CONTENT } from "@/constants/content";
 import "./globals.css";
 import BuyMeCoffee from "@/components/buyMeACoffe";
+import CanvasCursor from "@/components/canvas-cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -95,6 +96,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <ScrollProgress />
+          <CanvasCursor />
           {children}
         </ThemeProvider>
         <Analytics />
