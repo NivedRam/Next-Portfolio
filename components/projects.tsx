@@ -1,16 +1,20 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { CONTENT } from "@/constants/content"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { CONTENT } from "@/constants/content";
 
 export function Projects() {
-  const featuredProjects = CONTENT.projects.items.filter((project) => project.featured)
-  const otherProjects = CONTENT.projects.items.filter((project) => !project.featured)
+  const featuredProjects = CONTENT.projects.items.filter(
+    (project) => project.featured
+  );
+  const otherProjects = CONTENT.projects.items.filter(
+    (project) => !project.featured
+  );
 
   return (
     <section id="projects" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
@@ -22,8 +26,12 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{CONTENT.projects.title}</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{CONTENT.projects.description}</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            {CONTENT.projects.title}
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {CONTENT.projects.description}
+          </p>
         </motion.div>
 
         {/* Featured Projects */}
@@ -50,7 +58,9 @@ export function Projects() {
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1">{project.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
@@ -59,18 +69,22 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button size="sm" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    {/* <Button size="sm" asChild>
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         {CONTENT.projects.liveDemo}
                       </a>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild>
+                    </Button> */}
+                    {/* <Button variant="outline" size="sm" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
                         {CONTENT.projects.code}
                       </a>
-                    </Button>
+                    </Button> */}
                   </div>
                 </CardContent>
               </Card>
@@ -85,7 +99,9 @@ export function Projects() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold mb-8 text-center">{CONTENT.projects.otherProjects}</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            {CONTENT.projects.otherProjects}
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherProjects.map((project, index) => (
               <motion.div
@@ -95,12 +111,14 @@ export function Projects() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-2xl transition-shadow  ">
                   <CardHeader>
                     <CardTitle className="text-lg">{project.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 flex flex-col">
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 flex-1">{project.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 flex-1">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-1 mb-4">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <Badge key={tech} variant="outline" className="text-xs">
@@ -113,18 +131,26 @@ export function Projects() {
                         </Badge>
                       )}
                     </div>
-                    <div className="flex gap-2">
+                    {/* <div className="flex gap-2">
                       <Button size="sm" variant="ghost" asChild>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       </Button>
                       <Button size="sm" variant="ghost" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Github className="w-4 h-4" />
                         </a>
                       </Button>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -133,5 +159,5 @@ export function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

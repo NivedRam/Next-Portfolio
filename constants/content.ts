@@ -1,6 +1,7 @@
 export const CONTENT = {
   seo: {
-    title: "Nived Ram - MERN Stack Developer | React.js Expert | Kochi & Bangalore",
+    title:
+      "Nived Ram - MERN Stack Developer | React.js Expert | Kochi & Bangalore",
     description:
       "Experienced MERN Stack Developer specializing in React.js, Node.js, and modern web technologies. Based in Kochi & Bangalore, India. Available for freelance and full-time opportunities.",
     keywords:
@@ -10,6 +11,7 @@ export const CONTENT = {
     home: "Home",
     about: "About",
     experience: "Experience",
+    education: "Education",
     projects: "Projects",
     contact: "Contact",
     languages: "Languages",
@@ -29,19 +31,23 @@ export const CONTENT = {
     services: {
       fullStack: {
         title: "Full Stack Development",
-        description: "Building scalable web applications with modern technologies and best practices.",
+        description:
+          "Building scalable web applications with modern technologies and best practices.",
       },
       uiux: {
         title: "UI/UX Design",
-        description: "Creating intuitive and beautiful user interfaces that enhance user experience.",
+        description:
+          "Creating intuitive and beautiful user interfaces that enhance user experience.",
       },
       mobile: {
         title: "Mobile Development",
-        description: "Developing responsive and native mobile applications for iOS and Android.",
+        description:
+          "Developing responsive and native mobile applications for iOS and Android.",
       },
       web: {
         title: "Web Solutions",
-        description: "Comprehensive web solutions from concept to deployment and maintenance.",
+        description:
+          "Comprehensive web solutions from concept to deployment and maintenance.",
       },
     },
     skillsTitle: "Technologies & Skills",
@@ -63,7 +69,7 @@ export const CONTENT = {
   },
   experience: {
     title: "Experience",
-    description: "My professional journey and educational background in software development.",
+    description: "My professional journey  in software development.",
     workExperience: "Work Experience",
     education: "Education",
     jobs: [
@@ -74,7 +80,13 @@ export const CONTENT = {
         period: "Jul 2024 - Present",
         description:
           "Experienced software developer specializing in building dynamic, responsive web applications. Proficient in JavaScript, React, React Hooks, and state management, with a focus on delivering high-quality, user-friendly interfaces.",
-        technologies: ["JavaScript", "React", "React Hooks", "State Management", "Web Applications"],
+        technologies: [
+          "JavaScript",
+          "React",
+          "React Hooks",
+          "State Management",
+          "Web Applications",
+        ],
       },
       {
         title: "Software Developer",
@@ -83,7 +95,12 @@ export const CONTENT = {
         period: "Oct 2023 - May 2024",
         description:
           "Frontend engineer at Trigeminal AI with expertise in React for developing dynamic and responsive web applications. Experienced in cross-functional collaboration to deliver efficient, high-quality solutions aligned with client and user needs.",
-        technologies: ["React", "Frontend Development", "Cross-functional Collaboration", "Web Applications"],
+        technologies: [
+          "React",
+          "Frontend Development",
+          "Cross-functional Collaboration",
+          "Web Applications",
+        ],
       },
       {
         title: "MERN Stack Developer",
@@ -92,14 +109,24 @@ export const CONTENT = {
         period: "Oct 2022 - Oct 2023",
         description:
           "Full-stack engineer at B-JeLT, specializing in MERN stack (MongoDB, Express, React, Node.js) to deliver high-quality web applications through effective cross-team collaboration.",
-        technologies: ["MongoDB", "Express.js", "React", "Node.js", "Full Stack Development"],
+        technologies: [
+          "MongoDB",
+          "Express.js",
+          "React",
+          "Node.js",
+          "Full Stack Development",
+        ],
       },
     ],
+  },
+  education: {
+    title: "Education",
+    description: "My educational journey  that supported my growth.",
     educationItems: [
       {
         degree: "Bachelor Programme Of Computer Application",
-        institution: "IBVE - Institute of Basic and Vocational Education",
-        location: "Kerala, India",
+        institution: "IBVE Banglore",
+        location: "Banglore, India",
         period: "Jun 2017 - Mar 2020",
         description:
           "Completed Bachelor's program in Computer Application with focus on software development and programming fundamentals.",
@@ -109,7 +136,8 @@ export const CONTENT = {
         institution: "Luminar Technolab",
         location: "Kerala, India",
         period: "Oct 2022 - Feb 2023",
-        description: "Completed intensive training program in modern web development technologies and frameworks.",
+        description:
+          "Completed intensive training program in modern web development technologies and frameworks.",
       },
     ],
   },
@@ -125,8 +153,14 @@ export const CONTENT = {
         title: "KareFlow",
         description:
           "Developed a unified digital ecosystem for hospitals with microservice-based frontend architecture, enabling seamless demand generation, efficient lead management, and automated inventory control. Enhanced patient engagement through WhatsApp Business integration for appointments, reminders, and real-time communication.",
-        image: "/placeholder.svg?height=300&width=500",
-        technologies: ["React", "Microservices", "WhatsApp Business API", "Lead Management", "Inventory Control"],
+        image: "/placeholder2.jpg?height=300&width=500",
+        technologies: [
+          "React",
+          "Microservices",
+          "WhatsApp Business API",
+          "Lead Management",
+          "Inventory Control",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: true,
@@ -135,8 +169,14 @@ export const CONTENT = {
         title: "Kare Buddy App",
         description:
           "Developed a mini version of the Kareflow CRM as a Progressive Web App, designed for Kare-Buddys to efficiently manage and update the statuses of their tasks in real-time.",
-        image: "/placeholder.svg?height=300&width=500",
-        technologies: ["PWA", "React", "CRM", "Real-time Updates", "Task Management"],
+        image: "/placeholder1.jpg?height=300&width=500",
+        technologies: [
+          "PWA",
+          "React",
+          "CRM",
+          "Real-time Updates",
+          "Task Management",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: true,
@@ -146,7 +186,13 @@ export const CONTENT = {
         description:
           "The face recognition image sharing platform is a web app where users upload images, tag people using AI facial recognition, and discover photos of themselves uploaded by others.",
         image: "/placeholder.svg?height=300&width=500",
-        technologies: ["AI", "Face Recognition", "Image Processing", "React", "Node.js"],
+        technologies: [
+          "AI",
+          "Face Recognition",
+          "Image Processing",
+          "React",
+          "Node.js",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: false,
@@ -156,7 +202,13 @@ export const CONTENT = {
         description:
           "App to automate restaurant operations using QR code ordering system, and payment support for streamlined dining experience.",
         image: "/placeholder.svg?height=300&width=500",
-        technologies: ["QR Code", "Payment Integration", "Restaurant Management", "React", "Node.js"],
+        technologies: [
+          "QR Code",
+          "Payment Integration",
+          "Restaurant Management",
+          "React",
+          "Node.js",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: false,
@@ -166,7 +218,12 @@ export const CONTENT = {
         description:
           "App to upload pathology slide images, assign cases to pathologists, with access to comment and reply functionality for collaborative diagnosis.",
         image: "/placeholder.svg?height=300&width=500",
-        technologies: ["Medical Imaging", "Case Management", "Collaboration Tools", "React"],
+        technologies: [
+          "Medical Imaging",
+          "Case Management",
+          "Collaboration Tools",
+          "React",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: false,
@@ -176,7 +233,12 @@ export const CONTENT = {
         description:
           "Built production management app for a public sector department of Kerala government called Oushadhi for efficient production tracking and management.",
         image: "/placeholder.svg?height=300&width=500",
-        technologies: ["Government Project", "Production Management", "MERN Stack", "Dashboard"],
+        technologies: [
+          "Government Project",
+          "Production Management",
+          "MERN Stack",
+          "Dashboard",
+        ],
         liveUrl: "#",
         githubUrl: "#",
         featured: false,
@@ -185,7 +247,12 @@ export const CONTENT = {
   },
   languages: {
     title: "Languages",
-    items: ["English - Fluent", "Malayalam - Native", "Hindi - Conversational", "Tamil - Basic"],
+    items: [
+      "English - Fluent",
+      "Malayalam - Native",
+      "Hindi - Conversational",
+      "Tamil - Basic",
+    ],
   },
   contact: {
     title: "Get In Touch",
@@ -227,4 +294,4 @@ export const CONTENT = {
       },
     ],
   },
-}
+};
