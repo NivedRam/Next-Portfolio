@@ -65,10 +65,20 @@ export async function generateMetadata() {
       },
     },
     verification: {
-      google: "your-google-verification-code",
+      google: "mUGrYtsW89AdfuQ58WzK28uEcRP3v4W0zZkzUirk5PM",
       yandex: "your-yandex-verification-code",
       yahoo: "your-yahoo-verification-code",
     },
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/og-image.png", sizes: "32x32", type: "image/png" },
+        { url: "/og-image.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/og-image.png", sizes: "180x180", type: "image/png" }],
+      shortcut: ["/favicon.svg"],
+    },
+    manifest: "/site.webmanifest",
   };
 }
 

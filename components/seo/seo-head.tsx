@@ -23,7 +23,7 @@ export function SEOHead({
     : CONTENT.seo.title;
   const siteDescription = description || CONTENT.seo.description;
   const siteUrl = "https://nivedram.online";
-  const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+  const canonicalUrl = new URL(canonical || "/", siteUrl).toString();
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -72,9 +72,12 @@ export function SEOHead({
       "Backend Development",
     ],
     sameAs: [
-      "https://github.com/nived-ram",
-      "https://linkedin.com/in/nived-ram",
-      "https://twitter.com/nivedram",
+      "https://github.com/NivedRam",
+      "https://linkedin.com/in/nived-ram-online",
+      "https://www.instagram.com/_fatty_acid_/",
+      "https://medium.com/@nived-ram-online",
+      "https://himalayas.app/@nivedram",
+      "https://x.com/007Nived",
     ],
   };
 
@@ -92,7 +95,7 @@ export function SEOHead({
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: `${siteUrl}/portfolio`,
+        item: siteUrl,
       },
     ],
   };
@@ -114,14 +117,19 @@ export function SEOHead({
       <meta name="geo.position" content="9.9312;76.2673;12.9716;77.5946" />
       <meta name="ICBM" content="9.9312, 76.2673, 12.9716, 77.5946" />
 
-      {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      {/* Canonical URL is set via generateMetadata in app/layout.tsx */}
 
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content="profile" />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={siteDescription} />
       <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+      <meta property="og:image:secure_url" content={`${siteUrl}${ogImage}`} />
+      <meta
+        property="og:image:alt"
+        content="Nived Ram - Portfolio preview image"
+      />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:url" content={canonicalUrl} />
@@ -146,13 +154,7 @@ export function SEOHead({
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content="Nived Ram" />
 
-      {/* Favicon */}
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/og-image.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/og-image.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/og-image.png" />
-      <link rel="manifest" href="/site.webmanifest" />
+      {/* Favicons & manifest are set via Next.js metadata in app/layout.tsx */}
 
       {/* Structured Data */}
       <script
